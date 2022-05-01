@@ -1,6 +1,7 @@
-let myLibrary = [
+let container = document.querySelector('.container');
+let newBook = document.querySelector('#newBook');
 
-];
+let myLibrary = [];
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -8,13 +9,13 @@ function Book(title, author, pages, read) {
     this.pages = pages;
     this.read = read;
     this.info = function () {
-        return `${title} by ${author}, ${pages} pages, ${read ? "have read" : "not read yet"}`;
+        return `${title} by ${author}, ${pages} pages, ${read}`;
     };
 }
 
-let Book1 = new Book("Book1", "Bob", 123, true);
-let Book2 = new Book("Book2", "Cob", 123, false);
-let Book3 = new Book("Book3", "Dob", 123, true);
+let Book1 = new Book("Book1", "Bob", 123, "read");
+let Book2 = new Book("Book2", "Cob", 123, "not read");
+let Book3 = new Book("Book3", "Dob", 123, "read");
 
 
 function addBookToLibrary(book) {
@@ -24,9 +25,6 @@ function addBookToLibrary(book) {
 addBookToLibrary(Book1);
 addBookToLibrary(Book2);
 addBookToLibrary(Book3);
-
-let container = document.querySelector('.container');
-
 
 // for each book in myLibrary, creates card and appends book info on card
 function displayBooks() {
@@ -52,13 +50,6 @@ function displayBooks() {
     });
 }
 
-
-// // consumes string (txt) and appends a paragraph w/ that string onto card
-// function createParaOnCard(txt) {
-//     let newParagraph = document.createElement("p");
-//     newParagraph.textContent = txt;
-//     card.appendChild( 
-//         newParagraph
-//     );
-// }
-
+newBook.addEventListener('click', function() {
+    
+})
