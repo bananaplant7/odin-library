@@ -1,3 +1,83 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
 .container {
     background-color: paleturquoise;
+}
+
+#newBook {
+    cursor: pointer;
+}
+
+
+#modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10; 
+    background-color: white;
+    padding: 2rem;
+}
+
+#modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+.closeBtn-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#closeBtn {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+form > div {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    justify-items: center;
+}
+
+#radioBtns {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#submitBtn {
+    cursor: pointer;
+    border: none;
+}
+
+.submitBtn-container {
+    display: flex;
+    justify-content: center;
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0; 
+    transition: 200ms ease-in-out;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
 }

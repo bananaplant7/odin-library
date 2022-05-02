@@ -1,5 +1,9 @@
-let container = document.querySelector('.container');
-let newBook = document.querySelector('#newBook');
+const container = document.querySelector('.container');
+const newBook = document.querySelector('#newBook');
+const modal = document.querySelector('#modal');
+const closeBtn = document.querySelector('#closeBtn');
+const submitBtn = document.querySelector('#submitBtn');
+const overlay = document.querySelector('#overlay');
 
 let myLibrary = [];
 
@@ -50,6 +54,28 @@ function displayBooks() {
     });
 }
 
-newBook.addEventListener('click', function() {
-    
-})
+function openModal() {
+    if (modal == null) {
+        return;
+    } else {
+        modal.classList.add('active');
+        overlay.classList.add('active');
+    }
+}
+
+function closeModal() {
+    if (modal == null) {
+        return;
+    } else {
+        modal.classList.remove('active');
+        overlay.classList.remove('active');
+    }
+}
+
+newBook.addEventListener('click', () => {
+    openModal();
+});
+
+closeBtn.addEventListener('click', () => {
+    closeModal();
+});
