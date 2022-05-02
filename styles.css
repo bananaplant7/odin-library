@@ -3,13 +3,33 @@ body, html {
     padding: 0;
 }
 
+h1 {
+    text-align: center;
+}
+
 .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+
+.container > div {
+    border: 1px solid black;
+    padding: 2rem 3rem;
     background-color: paleturquoise;
+    border-radius: 3px;
+    box-shadow: 5px 5px 0px 1px orange;
+    border-left: 8px solid lightblue ;
 }
 
 #newBook {
     cursor: pointer;
-}
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    margin: 1rem;
+}   
 
 
 #modal {
