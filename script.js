@@ -79,3 +79,7 @@ newBook.addEventListener('click', () => {
 closeBtn.addEventListener('click', () => {
     closeModal();
 });
+
+overlay.addEventListener('click', () => {
+    closeModal();
+});
