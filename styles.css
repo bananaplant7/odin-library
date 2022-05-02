@@ -7,6 +7,7 @@ body, html {
 
 * {
     font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
 }
 
 h1 {
@@ -16,9 +17,11 @@ h1 {
 
 .container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    justify-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    justify-items: stretch;
     row-gap: 2rem;
+    column-gap: 4rem;
+    padding: 1rem;
 }
 
 .container > div {
@@ -28,9 +31,11 @@ h1 {
     box-shadow: 5px 5px 0px 1px orange;
     border-left: 8px solid lightblue ;
     min-width: 100px;
+    word-break: break-word;
 
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
 }
 
 #newBook {
@@ -95,7 +100,7 @@ form > div {
     grid-template-columns: repeat(2, 1fr);
 }
 
-#submitBtn {
+#submitBtn, #clearBtn {
     cursor: pointer;
     border: none;
     font-size: 1rem;
@@ -104,9 +109,13 @@ form > div {
     background-color: lightgreen;
 }
 
-.submitBtn-container {
+#clearBtn {
+    background-color: #FF7F7F;
+}
+
+.formBtns-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 #overlay {

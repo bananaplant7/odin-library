@@ -3,6 +3,7 @@ const newBook = document.querySelector('#newBook');
 const modal = document.querySelector('#modal');
 const closeBtn = document.querySelector('#closeBtn');
 const submitBtn = document.querySelector('#submitBtn');
+const clearBtn = document.querySelector('#clearBtn');
 const overlay = document.querySelector('#overlay');
 const title = document.querySelector('#bookTitle');
 const author = document.querySelector('#authorName');
@@ -115,6 +116,10 @@ submitBtn.addEventListener('click', () => {
         closeModal();
     }
 });
+
+clearBtn.addEventListener('click', () => {
+    clearAll();
+})
 
 // just to have some placeholder books
 let Book1 = new Book("Book1", "Bob", 123, "read");
