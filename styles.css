@@ -11,22 +11,26 @@ body, html {
 
 h1 {
     text-align: center;
+    margin-bottom: 4rem;
 }
 
 .container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     justify-items: center;
     row-gap: 2rem;
 }
 
 .container > div {
-    border: 1px solid black;
     padding: 2rem 3rem;
     background-color: paleturquoise;
     border-radius: 3px;
     box-shadow: 5px 5px 0px 1px orange;
     border-left: 8px solid lightblue ;
+    min-width: 100px;
+
+    display: flex;
+    flex-direction: column;
 }
 
 #newBook {
