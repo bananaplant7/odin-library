@@ -1,5 +1,5 @@
 const container = document.querySelector('.container');
-const newBook = document.querySelector('#newBook');
+const newBookBtn = document.querySelector('#newBookBtn');
 const modal = document.querySelector('#modal');
 const closeBtn = document.querySelector('#closeBtn');
 const submitBtn = document.querySelector('#submitBtn');
@@ -71,7 +71,7 @@ function closeModal() {
     }
 }
 
-newBook.addEventListener('click', () => {
+newBookBtn.addEventListener('click', () => {
     openModal();
 });
 
@@ -93,11 +93,11 @@ function formAllValid() {
 
 // deselects all form fields
 function clearAll() {
-    title.value = ''
-    author.value = ''
-    pages.value = ''
-    read.checked = false
-    notRead.checked = false
+    title.value = '';
+    author.value = '';
+    pages.value = '';
+    read.checked = false;
+    notRead.checked = false;
 }
 
 // if all inputs are valid
@@ -109,7 +109,7 @@ function clearAll() {
 
 submitBtn.addEventListener('click', () => {
     if (formAllValid()) {
-        let newBook = new Book(title.value, author.value, pages.value, "read");
+        let newBook = new Book(title.value, author.value, pages.value, (read.checked == true) ? "read" : "not read");
         addBookToLibrary(newBook);
         displayBooks();
         clearAll();
@@ -119,7 +119,7 @@ submitBtn.addEventListener('click', () => {
 
 clearBtn.addEventListener('click', () => {
     clearAll();
-})
+});
 
 // just to have some placeholder books
 let Book1 = new Book("Book1", "Bob", 123, "read");
