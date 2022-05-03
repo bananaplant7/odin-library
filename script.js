@@ -11,6 +11,7 @@ const pages = document.querySelector('input[type=number]');
 const read = document.querySelector('#read');
 const notRead = document.querySelector('#notRead');
 const form = document.querySelector('form');
+let removeBtns = document.querySelectorAll('[data-indexNum]');
 
 let myLibrary = [];
 
@@ -30,10 +31,11 @@ function addBookToLibrary(book) {
 
 // for each book in myLibrary, creates card and appends book info on card
 function displayBooks() {
-    container.textContent = '';
+    container.textContent = ''; // ** investigate this
+    let counter = 0;
     myLibrary.forEach(book => {
         let card = document.createElement("div");
-        container.appendChild(card); // change container later
+        container.appendChild(card);
 
         let title = document.createElement("p");
         title.textContent = book.title;
@@ -47,10 +49,17 @@ function displayBooks() {
         pages.textContent = `${book.pages} pages`;
         card.appendChild(pages);
 
-        let read = document.createElement("p");
+        let read = document.createElement("button");
         read.textContent = book.read;
         card.appendChild(read);
+
+        let remove = document.createElement("button");
+        remove.textContent = 'remove';
+        card.appendChild(remove);
+        remove.setAttribute('data-indexNum', counter);
+        counter++;
     });
+    removeBook();
 }
 
 function openModal() {
@@ -130,3 +139,20 @@ addBookToLibrary(Book2);
 addBookToLibrary(Book3);
 
 displayBooks();
+
+
+
+// select all remove buttons
+// add event listener for all remove btns on click: 
+// 1. find index number 
+// 2. remove from myLibrary
+// 3. update display
+// this must run every time new book is added 
+function removeBook() {
+    removeBtns = document.querySelectorAll('[data-indexNum]');
+    removeBtns.forEach(btn => btn.addEventListener('click', () => {
+        indexNum = btn.getAttribute('data-indexNum');
+        myLibrary.splice(indexNum, 1);
+        displayBooks();
+    }));
+}

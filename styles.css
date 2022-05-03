@@ -24,22 +24,26 @@ h1 {
     padding: 1rem;
 }
 
-.container > div {
+.container>div {
     padding: 2rem 3rem;
     background-color: paleturquoise;
     border-radius: 3px;
     box-shadow: 5px 5px 0px 1px orange;
-    border-left: 8px solid lightblue ;
+    border-left: 8px solid lightblue;
     min-width: 100px;
     word-break: break-word;
 
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
+}
+
+button {
+    cursor: pointer;
 }
 
 #newBookBtn {
-    cursor: pointer;
     position: fixed;
     right: 0;
     bottom: 0;
@@ -50,7 +54,12 @@ h1 {
     border-radius: 4px;
     font-size: 26px;
     box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.3);
-}   
+    opacity: 0.85;
+}
+
+#newBookBtn:hover {
+    opacity: 1;
+}
 
 
 #modal {
@@ -61,7 +70,7 @@ h1 {
     transition: 200ms ease-in-out;
     border: 1px solid black;
     border-radius: 10px;
-    z-index: 10; 
+    z-index: 10;
     background-color: white;
     padding: 2rem;
 }
@@ -77,7 +86,6 @@ h1 {
 }
 
 #closeBtn {
-    cursor: pointer;
     border: none;
     background-color: transparent;
     font-size: 1.5rem;
@@ -88,7 +96,7 @@ h1 {
     right: 0;
 }
 
-form > div {
+form>div {
     display: grid;
     grid-template-columns: 1fr 2fr;
     justify-items: center;
@@ -96,21 +104,30 @@ form > div {
     margin: 1rem 0;
 }
 
+form>div>input {
+    border: 1px solid grey;
+    border-radius: 6px;
+}
+
 #radioBtns {
     grid-template-columns: repeat(2, 1fr);
 }
 
 #submitBtn, #clearBtn {
-    cursor: pointer;
     border: none;
     font-size: 1rem;
     padding: 0.5rem;
     border-radius: 6px;
     background-color: lightgreen;
+    opacity: 0.85;
 }
 
 #clearBtn {
     background-color: #FF7F7F;
+}
+
+#submitBtn:hover, #clearBtn:hover {
+    opacity: 1;
 }
 
 .formBtns-container {
@@ -120,7 +137,7 @@ form > div {
 
 #overlay {
     position: fixed;
-    opacity: 0; 
+    opacity: 0;
     transition: 200ms ease-in-out;
     top: 0;
     right: 0;
