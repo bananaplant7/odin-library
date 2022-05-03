@@ -14,6 +14,8 @@ const form = document.querySelector('form');
 let removeBtns = document.querySelectorAll('[data-indexNum]');
 let readStatusBtns = document.querySelectorAll('[data-indexNumRead]');
 
+
+// ******** GENERAL ********
 let myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -70,7 +72,11 @@ function displayBooks() {
     removeBook();
     changeReadStatus();
 }
+// ****************
 
+
+
+// ******** FORM, MODAL, NEW BOOK ********
 function openModal() {
     if (modal == null) {
         return;
@@ -137,18 +143,11 @@ submitBtn.addEventListener('click', () => {
 clearBtn.addEventListener('click', () => {
     clearAll();
 });
-
-// just to have some placeholder books
-let Book1 = new Book("Book1", "Bob", 123, "read");
-let Book2 = new Book("Book2", "Cob", 123, "not read");
-let Book3 = new Book("Book3", "Dob", 123, "read");
-addBookToLibrary(Book1);
-addBookToLibrary(Book2);
-addBookToLibrary(Book3);
-
-displayBooks();
+// ****************
 
 
+
+// ******** CONTAINER & BOOK CARDS ********
 // select all remove buttons
 // add event listener for all remove btns on click: 
 // 1. find index number 
@@ -174,3 +173,12 @@ function changeReadStatus() {
         displayBooks();
     }));
 }
+// ****************
+
+// just to have some placeholder books
+let Book1 = new Book("Book 1", "Bob", 123, "read");
+let Book2 = new Book("Book 2", "Rob", 123, "not read");
+addBookToLibrary(Book1);
+addBookToLibrary(Book2);
+
+displayBooks();

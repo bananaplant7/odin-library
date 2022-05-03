@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
+/******** GENERAL ********/
 body, html {
     margin: 0;
     padding: 0;
@@ -15,6 +16,15 @@ h1 {
     margin-bottom: 4rem;
 }
 
+button {
+    cursor: pointer;
+}
+
+/****************/
+
+
+
+/******** CONTAINER & BOOK CARDS ********/
 .container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -39,10 +49,15 @@ h1 {
     align-items: center;
 }
 
-button {
-    cursor: pointer;
+.container>div>button:first-of-type {
+    margin-bottom: 1rem;
 }
 
+/****************/
+
+
+
+/******** FORM, MODAL, NEW BOOK ********/
 #newBookBtn {
     position: fixed;
     right: 0;
@@ -60,7 +75,6 @@ button {
 #newBookBtn:hover {
     opacity: 1;
 }
-
 
 #modal {
     position: fixed;
@@ -151,3 +165,5 @@ form>div>input {
     opacity: 1;
     pointer-events: all;
 }
+
+/****************/
