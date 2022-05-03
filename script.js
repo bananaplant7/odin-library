@@ -12,6 +12,7 @@ const read = document.querySelector('#read');
 const notRead = document.querySelector('#notRead');
 const form = document.querySelector('form');
 let removeBtns = document.querySelectorAll('[data-indexNum]');
+let readStatusBtns = document.querySelectorAll('[data-indexNumRead]');
 
 let myLibrary = [];
 
@@ -24,6 +25,12 @@ function Book(title, author, pages, read) {
         return `${title} by ${author}, ${pages} pages, ${read}`;
     };
 }
+
+Book.prototype.toggleRead = function () {
+    if (this.read == 'read') {
+        this.read = 'not read';
+    } else this.read = 'read';
+};
 
 function addBookToLibrary(book) {
     myLibrary.push(book);
@@ -52,6 +59,7 @@ function displayBooks() {
         let read = document.createElement("button");
         read.textContent = book.read;
         card.appendChild(read);
+        read.setAttribute('data-indexNumRead', counter);
 
         let remove = document.createElement("button");
         remove.textContent = 'remove';
@@ -60,6 +68,7 @@ function displayBooks() {
         counter++;
     });
     removeBook();
+    changeReadStatus();
 }
 
 function openModal() {
@@ -115,7 +124,6 @@ function clearAll() {
 // add to library
 // displayBooks()
 // clear form & close modal
-
 submitBtn.addEventListener('click', () => {
     if (formAllValid()) {
         let newBook = new Book(title.value, author.value, pages.value, (read.checked == true) ? "read" : "not read");
@@ -141,7 +149,6 @@ addBookToLibrary(Book3);
 displayBooks();
 
 
-
 // select all remove buttons
 // add event listener for all remove btns on click: 
 // 1. find index number 
@@ -153,6 +160,17 @@ function removeBook() {
     removeBtns.forEach(btn => btn.addEventListener('click', () => {
         indexNum = btn.getAttribute('data-indexNum');
         myLibrary.splice(indexNum, 1);
+        displayBooks();
+    }));
+}
+
+// indentical to ^ but instead of remove from myLibrary, changes read status
+// using function from prototype
+function changeReadStatus() {
+    readStatusBtns = document.querySelectorAll('[data-indexNumRead]');
+    readStatusBtns.forEach(btn => btn.addEventListener('click', () => {
+        indexNum = btn.getAttribute('data-indexNumRead');
+        myLibrary[indexNum].toggleRead();
         displayBooks();
     }));
 }
